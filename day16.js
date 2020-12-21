@@ -88,7 +88,7 @@ function numbersCanBeOfField(numbers, field){
 fieldsIndexes = new Object();
 availableFields = new Set(Object.keys(rules))
 availableIndexes = new Set(); for(i=0; i<yourTicket.length; i++){ availableIndexes.add(i);}
-while(availableFields.size > 1 ){ //Esto no funcionó con ">0" y no tengo idea por qué
+while(availableFields.size > 1 ){ //This didn't work with ">0" and I don't know why -- ugly anyway
 
 	for(field of availableFields){
 		compatibles = 0;
@@ -126,8 +126,6 @@ while(availableFields.size > 1 ){ //Esto no funcionó con ">0" y no tengo idea p
 
 	}
 }
-
-console.log(fieldsIndexes);
 
 result = 1;
 for(key of Object.keys(fieldsIndexes)){

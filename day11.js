@@ -18,7 +18,7 @@ function isInside(row, col){
 	return (row>=0 && row<height && col>=0 && col<width);
 }
 
-function countNeightbours(row, col, gridState){
+function countNeighbours(row, col, gridState){
 	empty = 0;
 	occup = 0;
 	for(dy=-1; dy<2; dy++){
@@ -41,10 +41,10 @@ function iterate(gridState){
 
 	for(row=0; row<height; row++){
 		for(col=0; col<width; col++){
-			if(gridState[row][col]=="L" && countNeightbours(row, col, gridState)[1]==0){
+			if(gridState[row][col]=="L" && countNeighbours(row, col, gridState)[1]==0){
 				newGrid[row][col] = '#';
 			}
-			if(gridState[row][col]=="#" && countNeightbours(row, col, gridState)[1]>=4){
+			if(gridState[row][col]=="#" && countNeighbours(row, col, gridState)[1]>=4){
 				newGrid[row][col] = 'L';
 			}
 		}
@@ -58,7 +58,7 @@ function countOccup(gridState){
 }
 
 
-//Parte 1
+//Part 1
 nextGrid = iterate(grid);
 while(nextGrid.flat().toString() != iterate(nextGrid).flat().toString()){
 	nextGrid = iterate(nextGrid);
@@ -66,8 +66,8 @@ while(nextGrid.flat().toString() != iterate(nextGrid).flat().toString()){
 
 console.log( countOccup(nextGrid) )
 
-//Parte 2
-function countVisibleNeightbours(row, col, gridState){
+//Part 2
+function countVisibleNeighbours(row, col, gridState){
 	empty = 0;
 	occup = 0;
 	for(dy=-1; dy<2; dy++){
@@ -93,10 +93,10 @@ function iterateVisible(gridState){
 
 	for(row=0; row<height; row++){
 		for(col=0; col<width; col++){
-			if(gridState[row][col]=="L" && countVisibleNeightbours(row, col, gridState)[1]==0){
+			if(gridState[row][col]=="L" && countVisibleNeighbours(row, col, gridState)[1]==0){
 				newGrid[row][col] = '#';
 			}
-			if(gridState[row][col]=="#" && countVisibleNeightbours(row, col, gridState)[1]>=5){
+			if(gridState[row][col]=="#" && countVisibleNeighbours(row, col, gridState)[1]>=5){
 				newGrid[row][col] = 'L';
 			}
 		}

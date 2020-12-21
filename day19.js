@@ -109,7 +109,7 @@ for(x of data){
 		count++;
 	}
 }
-console.log( count )
+console.log( count );
 
 //Part 2
 rules['8'] = [['42'], ['42', '8']];
@@ -155,5 +155,5 @@ for(x of data){
 	}
 }
 
-console.log( count )
+console.log( count );
 

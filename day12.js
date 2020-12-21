@@ -4,7 +4,7 @@ const input = fs.readFileSync('input_12', {encoding: 'utf-8'}).trim().split(/\n/
 
 instructions = [];
 for(instr of input){
-	instructions.push( [instr[0], parseInt(instr.slice(1,))])
+	instructions.push( [instr[0], parseInt(instr.slice(1,))]);
 }
 
 
@@ -39,7 +39,7 @@ for(instr of instructions){
 	coord = nextCoord(coord, instr);
 }
 
-console.log( Math.abs(coord[0][0])+Math.abs(coord[0][1]) )
+console.log( Math.abs(coord[0][0])+Math.abs(coord[0][1]) );
 
 
 //Part 2
@@ -61,9 +61,9 @@ function nextWaypoint(waypoint, instruction){
 	if(ins == 'L'){ angle = -(num%360+360)%360 * Math.PI/180;}
 	if(ins == 'R'){ angle = (num%360+360)%360 * Math.PI/180;}
 
-	[x,y] = [ Math.cos(angle)*x + Math.sin(angle)*y , -Math.sin(angle)*x + Math.cos(angle)*y ]
+	[x,y] = [ Math.cos(angle)*x + Math.sin(angle)*y , -Math.sin(angle)*x + Math.cos(angle)*y ];
 	
-	return([Math.round(x), Math.round(y)])
+	return([Math.round(x), Math.round(y)]);
 }
 
 pos= [0, 0];
@@ -76,4 +76,4 @@ for(instr of instructions){
 	wp = nextWaypoint(wp, instr);
 }
 
-console.log( Math.abs(pos[0])+Math.abs(pos[1]) )
+console.log( Math.abs(pos[0])+Math.abs(pos[1]) );

@@ -38,7 +38,7 @@ out = 0;
 for(expression of input){
 	out += evaluateExpression(expression);
 }
-console.log( out )
+console.log( out );
 
 
 //Part 2
@@ -68,6 +68,6 @@ for(expression of input){
 	out += evaluateExpressionWithSumPriority(expression);
 }
 
-console.log( out )
+console.log( out );
 
 

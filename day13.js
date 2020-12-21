@@ -10,11 +10,11 @@ while( IDs.map(x=> (earliest+wait)%x).filter(x=> x==0).length == 0 ){
 	wait++;
 }
 
-//Parte 1
+//Part 1
 bus = IDs.filter(x=> (earliest+wait)%x == 0 );
 console.log( bus * wait )
 
-//Parte 2 - es t. chino del resto pero lo voy a hacer iterativo a ver que pasa...
+//Part 2
 delay = [];
 schedule = input[1].split(",");
 for(i=0; i<schedule.length; i++){

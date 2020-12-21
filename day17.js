@@ -83,7 +83,7 @@ nextGrid = iterate3d(grid);
 for(i=2; i<=6; i++){
 	nextGrid = iterate3d(nextGrid);
 }
-console.log( countActives(nextGrid) )
+console.log( countActives(nextGrid) );
 
 //Parte 2
 function iterate4d(gridState){
@@ -111,5 +111,5 @@ for(i=2; i<=6; i++){
 	nextGrid = iterate4d(nextGrid);
 }
 
-console.log( countActives(nextGrid) )
+console.log( countActives(nextGrid) );
 
