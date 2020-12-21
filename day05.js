@@ -1,12 +1,12 @@
 const fs = require("fs");
 
-const valores = fs.readFileSync('input_5', {encoding: 'utf-8'}).trim().split(/\n/);
+const valores = fs.readFileSync('input_05', {encoding: 'utf-8'}).trim().split(/\n/);
 
 
 function rowCalc(letras){
 	row = 0;
 	for(i=0; i<7; i++){
-		if(letras[i]=='B'){ row += (2**(6-i)) }
+		if(letras[i]=='B'){ row += (2**(6-i)); }
 	}
 	return row;
 }
@@ -14,7 +14,7 @@ function rowCalc(letras){
 function seatCalc(letras){
 	seat = 0;
 	for(i=7; i<10; i++){
-		if(letras[i]=='R'){ seat += (2**(9-i)) }
+		if(letras[i]=='R'){ seat += (2**(9-i)); }
 	}
 	return seat;
 }
@@ -29,7 +29,7 @@ for(x of valores){
 	maximo = Math.max(maximo, seatID(x));
 }
 
-console.log( maximo )
+console.log( maximo );
 
 
 //Parte 2
@@ -43,4 +43,4 @@ for(x of valores){
 target = minimo;
 while(IDSvalidos.has(target+1)){target+=1;}
 
-console.log( target+1 )
+console.log( target+1 );

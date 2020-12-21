@@ -1,8 +1,7 @@
 const fs = require("fs");
 
-const reglas = fs.readFileSync('input_7', {encoding: 'utf-8'}).trim().split(/\n/);
+const reglas = fs.readFileSync('input_07', {encoding: 'utf-8'}).trim().split(/\n/);
 
-//console.log(reglas[0].match(/\w*\s\w*/));
 function reglaPara(regla){
 	return regla.match(/.+(?= bags contain)/)[0];
 }
@@ -11,13 +10,14 @@ function puedeContener(regla){
 	regla = regla.replace(/.*( bags contain )/, '');
 	
 	if(regla == 'no other bags.'){
-		return [[0, '']];}
+		return [[0, '']];
+	}
 	
 	data = [];
 	for(content of regla.split(/,/)){
 		number = content.match(/\d+/)[0];
 		bag    = content.match(/(?<=\d+ ).*(?= bag)/)[0];
-		data.push([parseInt(number), bag])
+		data.push([parseInt(number), bag]);
 	}
 	return data;
 }
@@ -47,7 +47,7 @@ function puedeIncluirShinyGold(bag){
 function listaDeBags(){
 	bags = new Set();
 	for(regla of reglas){
-		bags.add( reglaPara(regla) )
+		bags.add( reglaPara(regla) );
 	}
 	return bags;
 }
@@ -64,13 +64,10 @@ console.log( contador );
 function contarContenidoDe(bag){
 	contador = 0;
 	for(insideBag of contenidoDe(bag)){
-		//if( insideBag[1] == '' ){return 0;}
 		contador += insideBag[0];
 		contador += insideBag[0] * contarContenidoDe(insideBag[1]);
-		
 	}
 	return contador;
 }
 
-//console.log(contenidoDe('shiny gold'))
-console.log( contarContenidoDe('shiny gold') )
+console.log( contarContenidoDe('shiny gold') );

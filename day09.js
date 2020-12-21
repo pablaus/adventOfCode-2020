@@ -4,7 +4,7 @@ const valores = fs.readFileSync('input_09', {encoding: 'utf-8'}).trim().split(/\
 
 numeros = [];
 for(linea of valores){
-	numeros.push(parseInt(linea))
+	numeros.push(parseInt(linea));
 }
 
 preamble = 25;
@@ -13,7 +13,7 @@ function validateIndex(n){
 
 	num = numeros[n];
 
-	set = new Set;
+	set = new Set();
 	lis = numeros.slice(n-preamble, n);
 	for(i=0; i<lis.length-1; i++){
 		for(j=i+1; j<lis.length; j++){
@@ -48,7 +48,4 @@ for(l=2; l<numeros.length; l++){
 		break;
 	}
 }
-
-
-		
 

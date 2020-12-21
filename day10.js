@@ -4,11 +4,11 @@ const valores = fs.readFileSync('input_10', {encoding: 'utf-8'}).trim().split(/\
 
 adaptadores = [];
 for(linea of valores){
-	adaptadores.push(parseInt(linea))
+	adaptadores.push(parseInt(linea));
 }
 
 function adaptadoresCompatibles(jolts, listaAdaptadores){
-	return listaAdaptadores.filter( adaptador => (adaptador >= jolts+1 && adaptador <= jolts+3) )
+	return listaAdaptadores.filter( adaptador => (adaptador >= jolts+1 && adaptador <= jolts+3) );
 }
 
 
@@ -20,14 +20,11 @@ function diferenciasDeJolts(n, cadena){
 	return contador;
 }
 
-
-
 //Buen ejemplo para hacer una especie de backtracking
 function calcularCadenaMasLarga(inicial, adaptadoresRestantes){
 
 	if(adaptadoresCompatibles(inicial, adaptadoresRestantes).length==0){return [inicial];}
-
-	var masLarga = []; ////LA CONCHA DEL PATO, SI NO PONES VAR LO ASIGNA A UN SCOPE GLOBAL FALOPA
+	var masLarga = [];
 
 	for(adaptador of adaptadoresCompatibles(inicial, adaptadoresRestantes)){
 		quitarAdaptador = adaptadoresRestantes.filter(x => (x != adaptador));
@@ -37,7 +34,6 @@ function calcularCadenaMasLarga(inicial, adaptadoresRestantes){
 			masLarga=cadena;
 		}
 	}
-
 	return [inicial].concat(masLarga);
 }
 
@@ -70,14 +66,12 @@ function calcularNumeroDeCombinacionesMemo(inicial, adaptadoresRestantes){
 }
 		
 
-
-
 //Parte 1
-ordenados = [0].concat( adaptadores.sort(function(a, b){return a-b;}) )
-console.log(ordenados)
-console.log(diferenciasDeJolts(1, ordenados) * (diferenciasDeJolts(3, ordenados)+1) )
+ordenados = [0].concat( adaptadores.sort(function(a, b){return a-b;}) );
+//console.log(ordenados);
+console.log(diferenciasDeJolts(1, ordenados) * (diferenciasDeJolts(3, ordenados)+1) );
 //ordenDeEnchufado = calcularCadenaMasLarga(0, adaptadores); //chequear que da igual al sort
-//console.log(ordenDeEnchufado)
+//console.log(ordenDeEnchufado);
 
 
 //Parte 2
@@ -87,17 +81,5 @@ for(i=1; i<maximo+1; i++){
 	memo.push(-1);
 }
 
-console.log(  calcularNumeroDeCombinacionesMemo(0, adaptadores) )
+console.log(  calcularNumeroDeCombinacionesMemo(0, adaptadores) );
 
-
-
-
-// solución muy copada de un flaco haciendo pd de una forma distinta: https://github.com/arknave/advent-of-code-2020/blob/main/day10/day10.py
-//    dp = [1]
-//    for i in range(1, len(xs)):
-//        ans = 0
-//        for j in range(i):
-//            if xs[j] + 3 >= xs[i]:
-//                ans += dp[j]
-//        dp.append(ans)
-//    print("part 2", dp[-1])

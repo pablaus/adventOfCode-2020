@@ -6,7 +6,7 @@ programa = [];
 for(linea of valores){
 	ins = linea.match(/.* /)[0].trim();
 	val   = linea.match(/ .*/)[0];
-	programa.push([ins, parseInt(val)])
+	programa.push([ins, parseInt(val)]);
 }
 
 function terminates(instrucciones){
@@ -31,12 +31,10 @@ function terminates(instrucciones){
 console.log( terminates(programa) );
 
 //Parte 2
-//Todo lo que hay que hacer para una copia pedorra
-newPrograma = []; //Define new Array
+newPrograma = [];
 for(i=0; i<programa.length; i++){
-	newPrograma.push(programa[i].slice()) //programa[i] es Array también, necesita slice() para hacer copia de las primitivas
+	newPrograma.push(programa[i].slice());
 }
-/////
 
 for(i=0; i<programa.length; i++){
 
